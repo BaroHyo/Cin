@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NativeBaseProvider, Box, Button, Radio } from 'native-base';
 
 export default function App() {
+  const [value, setValue] = React.useState('one');
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NativeBaseProvider>
+      <Box flex={1} alignItems="center" justifyContent="center">
+        <Radio.Group
+          name="myRadioGroup"
+          accessibilityLabel="favorite number"
+          value={value}
+          onChange={nextValue => {
+            setValue(nextValue);
+          }}
+        >
+          <Radio value="one" my={1}>
+            One
+          </Radio>
+          <Radio value="two" my={1}>
+            Two
+          </Radio>
+        </Radio.Group>
+      </Box>
+    </NativeBaseProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
