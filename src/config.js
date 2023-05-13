@@ -1,37 +1,37 @@
 export const menu = [
   {
     id: 1,
-    nombre: 'PRODUCTOS',
-    component: 'Producto',
+    nombre: 'Productos',
+    screen: 'Product',
   },
   {
     id: 2,
-    nombre: 'CLIENTES',
-    component: 'Cliente',
+    nombre: 'Clientes',
+    screen: 'Customer',
   },
   {
     id: 3,
-    nombre: 'PEDIDOS',
-    component: 'Pedido',
+    nombre: 'Pedidos',
+    screen: 'Pedido',
   },
   {
     id: 4,
-    nombre: 'REGISTRADOS',
-    component: '',
+    nombre: 'Registrados',
+    screen: 'Registros',
   },
   {
     id: 5,
-    nombre: 'VISITA',
-    component: 'VisitasScreen',
+    nombre: 'Visita',
+    screen: 'Visita',
   },
   {
     id: 6,
-    nombre: 'MAPA GPS.',
-    component: 'Mapa',
+    nombre: 'Mapa GPS.',
+    screen: 'Map',
   },
   {
     id: 7,
-    nombre: 'DISTRIBUCIÓN',
-    component: 'TabDestribucion',
+    nombre: 'Distribucion',
+    screen: 'Distribucion',
   },
 ];

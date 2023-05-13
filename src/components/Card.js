@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigation } from '@react-navigation/core';
 import {
   Dimensions,
   Image,
@@ -10,9 +11,32 @@ import {
 
 const windowWidth = Dimensions.get('window').width;
 
-export function Card() {
+export function Card({ menu }) {
+  const [bgColor, setBgColor] = React.useState('grey');
+  const isMounted = React.useRef(true);
+  const navigation = useNavigation();
+
+  /*React.useEffect(() => {
+    ImageColors.getColors(pokemon.picture, { fallback: 'grey' }).then(
+      colors => {
+        if (!isMounted.current) return;
+
+        colors.platform === 'android'
+          ? setBgColor(colors.dominant || 'grey')
+          : setBgColor(colors.background || 'grey');
+      }
+    );
+
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);*/
+
   return (
-    <TouchableOpacity activeOpacity={0.9} onPress={() => console.log(1)}>
+    <TouchableOpacity
+      activeOpacity={0.9}
+      onPress={() => navigation.navigate(menu.screen)}
+    >
       <View
         style={{
           ...styles.cardContainer,
@@ -20,7 +44,7 @@ export function Card() {
         }}
       >
         <View>
-          <Text style={styles.name}>{'Miguel Alejandro'}</Text>
+          <Text style={styles.name}>{menu.nombre}</Text>
         </View>
         <View style={styles.pokebolaContainer}>
           <Image
