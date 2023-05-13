@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import { Center } from 'native-base';
 import { Card } from '../../components';
 import { menu } from '../../config';
 
 export function HomeScreen() {
   return (
-    <Center flex={1}>
+    <Center flex={1} py={3}>
       <FlatList
         data={menu}
         keyExtractor={p => p.id}

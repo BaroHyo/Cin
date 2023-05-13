@@ -2,7 +2,7 @@ export const menu = [
   {
     id: 1,
     nombre: 'Productos',
-    screen: 'Product',
+    screen: 'Producto',
   },
   {
     id: 2,

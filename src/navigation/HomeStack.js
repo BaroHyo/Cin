@@ -18,7 +18,7 @@ export default function HomeStack() {
   return (
     <Home.Navigator initialRouteName="Home" screenOptions={myConfig}>
       <Home.Screen name="Home" component={HomeScreen} />
-      <Home.Screen name="Product" component={ProductScreen} />
+      <Home.Screen name="Producto" component={ProductScreen} />
       <Home.Screen name="Customer" component={CustomerScreen} />
       <Home.Screen name="Pedido" component={PedidoScreen} />
       <Home.Screen name="Map" component={MapScreen} />
