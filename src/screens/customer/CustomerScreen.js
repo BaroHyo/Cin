@@ -1,10 +1,25 @@
-import { View, Text } from 'react-native';
-import React from 'react';
+import * as React from 'react';
+
+import {View, Text, ScrollView} from 'react-native';
+import {useNavigation} from "@react-navigation/native";
 
 export function CustomerScreen() {
-  return (
-    <View>
-      <Text>CustomerScreen</Text>
-    </View>
-  );
+
+    const navigation = useNavigation()
+    const [search, setSearch] = React.useState('');
+
+    React.useEffect(() => {
+        navigation.setOptions({
+            // headerLargeTitle: true,
+            headerSearchBarOptions: {
+                onChangeText: (event) => console.log(event.nativeEvent.text),
+            },
+        })
+    }, [navigation])
+
+    return (
+        <ScrollView style={{flex: 1}}>
+            <Text>CLiente</Text>
+        </ScrollView>
+    );
 }
