@@ -1,7 +1,6 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {FontAwesome} from '@expo/vector-icons';
-
 import {
     CustomerScreen,
     HomeScreen,
@@ -15,6 +14,7 @@ import {
     ClienteScreen,
 } from '../screens';
 import {Pressable} from "react-native";
+import {useNavigation} from "@react-navigation/native";
 
 const Stack = createStackNavigator();
 const StackMavtivo = createNativeStackNavigator();
@@ -36,7 +36,10 @@ function ClienteStack() {
         </Stack.Navigator>
     );
 }
- export default function HomeStack() {
+
+export default function HomeStack() {
+    const navigation = useNavigation();
+
     return (
         <Stack.Navigator
             initialRouteName="Home"
@@ -46,15 +49,14 @@ function ClienteStack() {
                 presentation: 'push',
                 gestureEnabled: true,
                 keyboardHandlingEnabled: true,
-            }}
-        >
+            }}>
             <Stack.Screen
                 name="Home"
                 options={{
                     headerShown: true,
                     title: null,
                     headerLeft: () => (
-                        <Pressable onPress={() => console.log(1)}>
+                        <Pressable onPress={() => navigation.openDrawer()}>
                             <FontAwesome
                                 name="align-left"
                                 style={{marginLeft: 20}}
@@ -76,12 +78,18 @@ function ClienteStack() {
             />
             <Stack.Screen name="ProductoStack"
                           component={ProductoStack}/>
-            <Stack.Screen name="ClienteStack" component={ClienteStack}/>
-            <Stack.Screen name="Pedido" component={PedidoScreen}/>
-            <Stack.Screen name="Map" component={MapScreen}/>
-            <Stack.Screen name="Distribucion" component={DistribucionScreen}/>
-            <Stack.Screen name="Visita" component={VisitaScreen}/>
-            <Stack.Screen name="Registros" component={RegistrosScreen}/>
+            <Stack.Screen name="ClienteStack"
+                          component={ClienteStack}/>
+            <Stack.Screen name="Pedido"
+                          component={PedidoScreen}/>
+            <Stack.Screen name="Map"
+                          component={MapScreen}/>
+            <Stack.Screen name="Distribucion"
+                          component={DistribucionScreen}/>
+            <Stack.Screen name="Visita"
+                          component={VisitaScreen}/>
+            <Stack.Screen name="Registros"
+                          component={RegistrosScreen}/>
         </Stack.Navigator>
     );
 }

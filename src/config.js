@@ -33,7 +33,7 @@ export const menu = [
         id: 6,
         nombre: 'Mapa GPS.',
         screen: 'Map',
-        icon: require("../assets/home/localizacion.png"),
+        icon: require("../assets/home/Localizacion.png"),
     },
     {
         id: 7,

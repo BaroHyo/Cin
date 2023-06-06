@@ -2,15 +2,20 @@ import * as React from 'react';
 import {FlatList, SafeAreaView, Text, TouchableOpacity, View, Dimensions, Image} from 'react-native';
 import {Card} from '../../components';
 import {menu} from '../../config';
+import {useNavigation} from "@react-navigation/native";
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const CardMenu = ({menu}) => {
+    const navigation = useNavigation();
+
     return (
-        <TouchableOpacity activeOpacity={0.8}>
+        <TouchableOpacity activeOpacity={0.8}
+                          onPress={() => navigation.navigate(menu.screen)}
+        >
             <View style={{
                 marginVertical: 10,
-                backgroundColor: 'grey',
+                backgroundColor: '#FF7043',
                 marginHorizontal: 5,
                 width: windowWidth / 2 - 30,
                 height: windowHeight / 7,
@@ -21,11 +26,10 @@ const CardMenu = ({menu}) => {
             }}>
                 <View>
                     <Text style={{
-                        color: 'white',
+                        color: '#fff',
                         fontSize: 18,
                         fontWeight: 'bold',
-                        //top: 2,
-                        //left: 2,
+                        bottom: 10,
                     }}>
                         {menu.nombre}
                     </Text>
@@ -36,20 +40,17 @@ const CardMenu = ({menu}) => {
                     position: 'absolute',
                     bottom: 0,
                     right: 0,
-                   //overflow: 'hidden',
-                   //opacity: 0.5,
                 }}>
-                    {/*<Image*/}
-                    {/*    source={menu.icon}*/}
-                    {/*    style={{*/}
-                    {/*        width: 80,*/}
-                    {/*        height: 80,*/}
-                    {/*        position: 'absolute',*/}
-                    {/*        right: -10,*/}
-                    {/*        bottom: -8,*/}
-
-                    {/*    }}*/}
-                    {/*/>*/}
+                    <Image
+                        source={menu.icon}
+                        style={{
+                            width: 58,
+                            height: 58,
+                            position: 'absolute',
+                            right: 2,
+                            bottom: 9,
+                        }}
+                    />
                 </View>
             </View>
         </TouchableOpacity>
@@ -57,6 +58,7 @@ const CardMenu = ({menu}) => {
 }
 
 export function HomeScreen() {
+
     return (
         <SafeAreaView style={{
             flex: 1,
