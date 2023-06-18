@@ -1,10 +1,18 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 
 export function VisitaScreen() {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>VisitaScreen</Text>
     </View>
-  )
+  );
 }
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+  },
+});

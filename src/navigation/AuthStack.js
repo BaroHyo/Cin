@@ -1,5 +1,5 @@
 import { createStackNavigator } from '@react-navigation/stack';
-import { LoginScreen } from '../screens';
+import AuthScreen from '../screens/auth/Auth';
 
 const Auth = createStackNavigator();
 
@@ -11,7 +11,7 @@ export default function AuthStack() {
         animationTypeForReplace: 'pop',
       }}
     >
-      <Auth.Screen name="Login" component={LoginScreen} />
+      <Auth.Screen name="Auth" component={AuthScreen} />
     </Auth.Navigator>
   );
 }

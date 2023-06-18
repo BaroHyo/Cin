@@ -1,5 +1,5 @@
+export * from './visita/ResumenScreen';
 export * from './Home/HomeScreen';
-export * from './auth/LoginScreen';
 export * from './SplashScreen';
 export * from './products/ProductScreen';
 export * from './products/DetalleScreen';
